@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	<section id="One" class="wrapper style3">
+		<div class="inner">
+			<header class="align-center">
+				<p>URL Shortener</p>
+				<h2>긴 URL을 입력하면 짧게 변환해줍니다.</h2>
+			</header>
+		</div>
+	</section>
+
+	<div id="main" class="container">
+		<h2>URL 입력</h2>
+		<form method="post" action="#">
+			<div class="row uniform">
+				<div class="9u 12u$(small)">
+					<input type="text" name="url" id="url"
+						   value="{{ request.form['url'] }}"
+						   placeholder="URL을 입력하세요." autofocus>
+				</div>
+				<div class="3u$ 12u$(small)">
+					<input type="submit" value="변환" class="fit">
+				</div>
+			</div>
+		</form>
+
+		<hr>
+		<h2>변환된 URL</h2>
+		{% if short_url %}
+			<input type="text" name="short_url" id="short_url" value="{{ short_url }}" readonly>
+		{% else %}
+			<input type="text" value="short_url" readonly>
+		{% endif %}
+	</div>
+
+{% endblock %}

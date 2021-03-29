@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Hielo by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css')}}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="{{ url_for('index') }}">URL Shortener <span>by KDY</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{{ url_for('index') }}">Home</a></li>
+					<li><a href="{{ url_for('stats') }}">Stats</a></li>
+				</ul>
+			</nav>
+
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<!--{{ message }}-->
+				<script>
+					alert('{{message}}')
+				</script>
+				{% endfor %}
+				{% endif %}
+			{% endwith %}
+		{% block content %}
+		{% endblock %}
+
+		<!-- Footer -->
+		<br/>
+		<footer id="footer">
+			<div class="container">
+			</div>
+			<div class="copyright">
+				&copy; Template "Hielo" designed by TEMPLATED. noonnoo All rights reserved.
+				<br/>
+				<a href="'https://www.digitalocean.com/community/tutorials/how-to-make-a-url-shortener-with-flask-and-sqlite'">참고 사이트 | ref. site</a>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='assets/js/skel.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js')}}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js')}}"></script>
+
+	</body>
+</html>
